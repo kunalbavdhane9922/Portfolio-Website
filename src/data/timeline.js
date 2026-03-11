@@ -1,0 +1,55 @@
+export const timelineData = [
+    {
+        year: '2022',
+        title: 'The Foundation',
+        summary: 'Started the Computer Engineering program. Built the fundamentals.',
+        skills: ['C', 'C++', 'Data Structures', 'Algorithms', 'Python Basics', 'Linux'],
+        technologies: ['VS Code', 'GCC', 'Git', 'Ubuntu'],
+        projects: [
+            { name: 'DSA Problem Set', description: '100+ solved problems on LeetCode focusing on arrays, trees, and graphs.' },
+            { name: 'Mini Shell', description: 'A basic Unix shell in C implementing pipes, redirection, and background jobs.' },
+        ],
+        highlight: 'Discovered my passion for systems programming and problem solving.',
+        color: '#38BDF8',
+    },
+    {
+        year: '2023',
+        title: 'Full Stack & Systems',
+        summary: 'Expanded into web development and distributed systems.',
+        skills: ['JavaScript', 'React', 'Node.js', 'SQL', 'MongoDB', 'REST APIs', 'WebSockets'],
+        technologies: ['React', 'Express.js', 'PostgreSQL', 'Redis', 'Docker', 'Nginx', 'Socket.io'],
+        projects: [
+            { name: 'Distributed Chat System', description: 'WebSocket chat with Redis pub/sub for horizontal scaling across multiple Node.js instances.' },
+            { name: 'ML Stock Predictor', description: 'LSTM model for stock price forecasting with a Streamlit dashboard.' },
+        ],
+        highlight: 'Shipped my first production-grade full-stack project and learned distributed systems patterns.',
+        color: '#6366F1',
+    },
+    {
+        year: '2024',
+        title: 'AI & Data Engineering',
+        summary: 'Went deep into ML pipelines, AI integration, and data systems.',
+        skills: ['Python (Advanced)', 'Machine Learning', 'Deep Learning', 'Data Engineering', 'TypeScript', 'System Design'],
+        technologies: ['TensorFlow', 'Scikit-learn', 'Apache Kafka', 'FastAPI', 'Docker Compose', 'Chart.js'],
+        projects: [
+            { name: 'AI Data Pipeline', description: 'Intelligent ETL with ML anomaly detection processing 50K+ records/day.' },
+            { name: 'HealthTrack Web App', description: 'Full-stack health monitoring dashboard with AI-powered insights.' },
+            { name: 'Portfolio OS', description: 'Desktop OS-inspired portfolio with draggable windows and a terminal emulator.' },
+        ],
+        highlight: 'Merged AI/ML knowledge with full-stack engineering — built projects that solve real problems.',
+        color: '#8B5CF6',
+    },
+    {
+        year: '2025',
+        title: 'Systems Thinking & Scale',
+        summary: 'Focused on production engineering, DevOps, and research-driven AI work.',
+        skills: ['Kubernetes', 'CI/CD', 'Cloud Architecture', 'LLM Integration', 'System Design (Advanced)', 'Technical Writing'],
+        technologies: ['Kubernetes', 'GitHub Actions', 'LangChain', 'Pinecone', 'Terraform', 'Grafana'],
+        projects: [
+            { name: 'DevOps CI/CD Platform', description: 'Self-hosted CI/CD with Docker build agents, live log streaming, and deployment orchestration.' },
+            { name: 'RAG Knowledge Assistant', description: 'LLM-powered Q&A over private documents using Retrieval-Augmented Generation.' },
+        ],
+        highlight: 'Building with production mindset — observability, reliability, and scale at the core.',
+        color: '#EC4899',
+    },
+];
