@@ -16,9 +16,13 @@
   body {
     background-color: #0F172A;
     color: #E2E8F0;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    --cozy-warm: #fef3c7;
+    --cozy-amber: #f59e0b;
+    --cozy-rose: #fda4af;
+    --cozy-radius: 32px;
   }
 
   /* Custom scrollbar */
@@ -101,189 +105,328 @@
   transform: translateY(0);
 }
 
-/* ─── 3D Tech Keyboard ─────────────────────────────────── */
-.tech-keyboard-container {
-  perspective: 1200px;
-  display: flex;
-  justify-content: center;
-  position: relative;
+/* ── Cozy Modern Aesthetics ─────────────────────────────────── */
+.cozy-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--cozy-radius);
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
 }
 
-.tech-keyboard-body {
-  background: linear-gradient(145deg, #1a2332, #0f172a);
-  border: 1px solid #334155;
-  border-radius: 20px;
-  padding: 28px 32px 36px;
-  transform-style: preserve-3d;
-  transform: rotateX(8deg);
-  position: relative;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.5),
-    0 4px 20px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+.cozy-card:hover {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(251, 191, 36, 0.2);
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
 }
 
-.tech-keyboard-power-led {
+.cozy-blob {
   position: absolute;
-  top: 12px;
-  right: 24px;
-  width: 6px;
-  height: 6px;
   border-radius: 50%;
-  background: #10B981;
-  box-shadow: 0 0 8px #10B981, 0 0 16px rgba(16, 185, 129, 0.3);
-  animation: led-pulse 3s ease-in-out infinite;
-}
-
-@keyframes led-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.tech-keyboard-row {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-  justify-content: center;
-}
-
-.tech-keyboard-row:last-child {
-  margin-bottom: 0;
-}
-
-.tech-keyboard-shine {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40%;
-  border-radius: 20px 20px 0 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: 0;
   pointer-events: none;
 }
 
-/* Individual keycap */
-.tech-key-wrapper {
-  position: relative;
-  cursor: pointer;
-  transform-style: preserve-3d;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
+.cozy-text-warm {
+  color: #fbbf24;
 }
 
-.tech-keycap {
-  width: 68px;
-  height: 68px;
-  background: linear-gradient(145deg, #2a3548, #1e293b);
-  border: 1px solid #3d4f65;
-  border-radius: 10px;
+.cozy-noise {
+  position: relative;
+}
+
+.cozy-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: inherit;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PREMIUM TECH GRID — Modern Portfolio Tech Stack
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Layout ─────────────────────────────────────────────────── */
+.k3d-section {
+  padding: 80px 24px 110px;
+  background: linear-gradient(180deg, #07101e 0%, #09121e 60%, #050d17 100%);
+  overflow: hidden;
+  position: relative;
+}
+.k3d-wrap { max-width: 1140px; margin: 0 auto; position: relative; z-index: 2; }
+
+/* ── Blurred Code Background ─────────────────────────────────── */
+.k3d-code-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.k3d-code-text {
+  position: absolute;
+  top: 5%;
+  left: 3%;
+  right: 3%;
+  bottom: 0;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(148, 163, 184, 0.12);
+  white-space: pre;
+  filter: blur(1.2px);
+  user-select: none;
+  overflow: hidden;
+}
+
+/* ── Sparkle Decoration ──────────────────────────────────────── */
+.k3d-sparkle {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 3;
+  color: rgba(148, 163, 184, 0.35);
+  animation: k3d-sparkle-pulse 3s ease-in-out infinite;
+}
+@keyframes k3d-sparkle-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1) rotate(0deg); }
+  50%      { opacity: 0.65; transform: scale(1.15) rotate(8deg); }
+}
+
+@keyframes cozy-blob {
+  0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 40%; }
+  33% { border-radius: 60% 40% 30% 70% / 50% 30% 70% 50%; }
+  66% { border-radius: 40% 60% 50% 50% / 60% 70% 40% 30%; }
+}
+
+.animate-cozy-blob {
+  animation: cozy-blob 10s ease-in-out infinite;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.k3d-header { text-align: center; margin-bottom: 32px; }
+
+.k3d-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 14px;
+}
+.k3d-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: #64748b;
+  letter-spacing: 0.03em;
+}
+.k3d-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.k3d-dot-expert   { background: #22d3ee; box-shadow: 0 0 6px #22d3ee99; }
+.k3d-dot-learning { background: #a78bfa; animation: tile-pulse 2s ease-in-out infinite; }
+.k3d-dot-future   { background: transparent; border: 1.5px solid #475569; }
+
+/* ── Tech Grid Layout ────────────────────────────────────────── */
+.tech-grid-container {
+  position: relative;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: all 0.12s ease;
-  transform: translateY(0);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  justify-items: center;
+}
+
+/* ── Tech Tile Square Style ─────────────────────────────────── */
+.tech-tile {
   position: relative;
+  width: 80px;
+  height: 80px;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /* overflow: hidden; -- Removed to allow tooltip to show */
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
 }
 
-.tech-keycap-pressed {
-  transform: translateY(3px) !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 1px 0 #0f172a, 0 2px 4px rgba(0,0,0,0.3) !important;
+.tech-tile:hover {
+  z-index: 50; /* Ensure hovered tile and its tooltip are on top */
 }
 
-.tech-keycap:hover {
-  background: linear-gradient(145deg, #334155, #283548);
-  border-color: var(--key-color);
-  transform: translateY(-2px);
+.tech-tile-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden; /* Keep the inner glow contained */
 }
 
-/* Icon inside keycap */
-.tech-key-icon {
-  font-size: 28px;
-  transition: all 0.2s ease;
-  line-height: 1;
+.tech-tile-icon {
+  font-size: 36px;
+  color: #94a3b8;
+  transition: all 0.3s ease;
+  filter: saturate(0.5) opacity(0.8);
 }
 
-/* LED indicator dot */
-.tech-key-led {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  transition: all 0.2s ease;
+.tech-tile-glow {
   position: absolute;
-  bottom: 8px;
-}
-
-/* Tooltip */
-.tech-key-tooltip {
-  position: absolute;
-  bottom: -36px;
-  left: 50%;
-  transform: translateX(-50%) translateY(4px);
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 6px;
-  padding: 4px 10px;
-  white-space: nowrap;
+  inset: 0;
+  background: var(--tile-color, #38bdf8);
   opacity: 0;
+  filter: blur(20px);
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* Expert styles */
+.tech-expert .tech-tile-icon {
+  color: var(--tile-color);
+  filter: saturate(1) opacity(1);
+}
+
+.tech-expert:hover .tech-tile-glow {
+  opacity: 0.25;
+}
+
+/* Learning styles */
+.tech-learning .tech-tile-icon {
+  animation: tile-pulse 3s ease-in-out infinite;
+}
+
+/* Future styles */
+.tech-future {
+  border-style: dashed;
+  background: rgba(15, 23, 42, 0.2);
+}
+.tech-future .tech-tile-icon {
+  opacity: 0.2;
+  filter: grayscale(1);
+}
+
+/* Hover effects */
+.tech-tile:hover {
+  border-color: var(--tile-color, #38bdf8);
+  background: rgba(30, 41, 59, 0.7);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transform: translateY(-8px);
+}
+
+.tech-tile:hover .tech-tile-icon {
+  filter: saturate(1) opacity(1) drop-shadow(0 0 12px var(--tile-color));
+  transform: scale(1.15);
+}
+
+/* ── Tech Tile Tooltip ───────────────────────────────────────── */
+.tech-tile-tooltip {
+  position: absolute;
+  bottom: calc(100% + 15px);
+  left: 50%;
+  /* Centered via Framer Motion x: '-50%' */
+  padding: 12px 18px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  z-index: 100;
   pointer-events: none;
-  transition: all 0.2s ease;
-  z-index: 20;
+  min-width: 200px;
+  text-align: center;
 }
 
-.tech-key-tooltip-visible {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
+.tech-tile-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
 }
 
-/* Responsive keyboard */
+.k3d-tooltip-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.k3d-tooltip-tip {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+@keyframes tile-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .tech-keyboard-body {
-    padding: 16px 12px 20px;
-    border-radius: 14px;
-    transform: rotateX(4deg);
+  .tech-grid {
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    gap: 16px;
   }
-
-  .tech-keyboard-row {
-    gap: 6px;
-    margin-bottom: 6px;
-    padding-left: 0 !important;
+  .tech-tile {
+    width: 64px;
+    height: 64px;
   }
-
-  .tech-keycap {
-    width: 44px;
-    height: 44px;
-    border-radius: 7px;
+  .tech-tile-icon {
+    font-size: 28px;
   }
-
-  .tech-key-icon {
-    font-size: 18px;
-  }
-
-  .tech-key-led {
-    width: 3px;
-    height: 3px;
-    bottom: 5px;
-  }
-
-  .tech-key-tooltip {
-    display: none;
+  .tech-tile-tooltip {
+    min-width: 160px;
+    padding: 8px 12px;
   }
 }
 
 @media (max-width: 480px) {
-  .tech-keycap {
-    width: 36px;
-    height: 36px;
-    border-radius: 6px;
+  .tech-grid {
+    grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+    gap: 12px;
   }
-
-  .tech-key-icon {
-    font-size: 15px;
+  .tech-tile {
+    width: 56px;
+    height: 56px;
   }
-
-  .tech-keyboard-body {
-    padding: 12px 8px 14px;
+  .tech-tile-icon {
+    font-size: 24px;
+  }
+  .tech-tile-tooltip {
+    display: none; /* Tooltips often too bulky for mobile squares */
   }
 }
+
+
+

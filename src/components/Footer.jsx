@@ -7,7 +7,6 @@ const navLinks = [
     { label: 'Projects', path: '/projects' },
     { label: 'Timeline', path: '/timeline' },
     { label: 'About', path: '/about' },
-    { label: 'Contact', path: '/contact' },
 ];
 
 export default function Footer() {

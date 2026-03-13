@@ -154,10 +154,6 @@ export default function Home() {
                                     <span className="text-primary font-semibold">Open to:</span> Internships, freelance projects, open source collaboration, and technical mentorship.
                                 </p>
                             </div>
-
-                            <Link to="/contact" className="btn-secondary w-full text-center text-sm block">
-                                Full Contact Page →
-                            </Link>
                         </motion.div>
 
                         {/* Form */}

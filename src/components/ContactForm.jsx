@@ -1,6 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+
+// ─────────────────────────────────────────────────────────────
+// Replace YOUR_FORM_ID with the ID from https://formspree.io
+// e.g. if your endpoint is https://formspree.io/f/xaybgpkz
+// set FORMSPREE_ID = 'xaybgpkz'
+// ─────────────────────────────────────────────────────────────
+const FORMSPREE_ID = 'YOUR_FORM_ID';
+const FORMSPREE_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
 
 export default function ContactForm() {
     const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -30,10 +38,21 @@ export default function ContactForm() {
             return;
         }
         setStatus('submitting');
-        // Simulate async send
-        await new Promise((r) => setTimeout(r, 1200));
-        setStatus('success');
-        setForm({ name: '', email: '', message: '' });
+        try {
+            const res = await fetch(FORMSPREE_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
+            });
+            if (res.ok) {
+                setStatus('success');
+                setForm({ name: '', email: '', message: '' });
+            } else {
+                setStatus('error');
+            }
+        } catch {
+            setStatus('error');
+        }
     };
 
     const inputClass = (field) =>
@@ -56,6 +75,28 @@ export default function ContactForm() {
                     className="mt-6 btn-secondary text-sm py-2 px-5"
                 >
                     Send another
+                </button>
+            </motion.div>
+        );
+    }
+
+    if (status === 'error') {
+        return (
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-card border border-red-500/20 rounded-2xl p-10 text-center"
+            >
+                <AlertCircle size={48} className="text-red-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-text-primary mb-2">Something went wrong</h3>
+                <p className="text-text-secondary text-sm">
+                    Your message couldn't be sent. Please try emailing me directly instead.
+                </p>
+                <button
+                    onClick={() => setStatus('idle')}
+                    className="mt-6 btn-secondary text-sm py-2 px-5"
+                >
+                    Try again
                 </button>
             </motion.div>
         );

@@ -2,7 +2,7 @@ import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
+import Home from './pages/home';
 import Projects from './pages/Projects';
 import CaseStudy from './pages/CaseStudy';
 import TimelinePage from './pages/TimelinePage';
@@ -30,7 +30,6 @@ function AppLayout() {
           <Route path="/projects/:id" element={<CaseStudy />} />
           <Route path="/timeline" element={<TimelinePage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
           {/* Fallback */}
           <Route path="*" element={<Home />} />
         </Routes>
