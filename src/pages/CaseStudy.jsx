@@ -1,5 +1,5 @@
 import { useParams, Navigate } from 'react-router-dom';
-import { projects } from '../data/projects';
+import { projects } from '../data/profile';
 import CaseStudyLayout from '../components/CaseStudyLayout';
 
 export default function CaseStudy() {

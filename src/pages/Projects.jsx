@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
-import { projects } from '../data/projects';
+import { projects } from '../data/profile';
 import { Filter } from 'lucide-react';
 
 const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)))];

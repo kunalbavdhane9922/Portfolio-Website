@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ProjectCard from './ProjectCard';
-import { featuredProjects } from '../data/projects';
+import { featuredProjects } from '../data/profile';
 
 export default function FeaturedProjects() {
     const ref = useRef(null);

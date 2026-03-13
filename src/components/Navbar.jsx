@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Github, Linkedin, Menu, X, Code2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { social } from '../data/profile';
 
 const navLinks = [
     { label: 'Home', path: '/' },
@@ -75,7 +76,7 @@ export default function Navbar() {
                         {/* Social icons */}
                         <div className="hidden md:flex items-center gap-3">
                             <a
-                                href="https://github.com/kunalbavdhane"
+                                href={social.github.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-text-muted hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/5"
@@ -84,7 +85,7 @@ export default function Navbar() {
                                 <Github size={20} />
                             </a>
                             <a
-                                href="https://linkedin.com/in/kunalbavdhane"
+                                href={social.linkedin.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-text-muted hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/5"
@@ -141,10 +142,10 @@ export default function Navbar() {
                                 Download Resume
                             </a>
                             <div className="flex gap-4 px-4 pt-2 pb-1">
-                                <a href="https://github.com/kunalbavdhane" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="GitHub">
+                                <a href={social.github.url} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="GitHub">
                                     <Github size={20} />
                                 </a>
-                                <a href="https://linkedin.com/in/kunalbavdhane" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="LinkedIn">
+                                <a href={social.linkedin.url} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="LinkedIn">
                                     <Linkedin size={20} />
                                 </a>
                             </div>

@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { ArrowDown, Github, ExternalLink } from 'lucide-react';
+import { personal, social, projects, heroStats } from '../data/profile';
 
 function FloatingBlob({ className, delay = 0 }) {
     return (
@@ -69,7 +70,7 @@ export default function HeroSection() {
                 <motion.div variants={item} className="inline-flex items-center gap-2 mb-6">
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium">
                         <span className="w-2 h-2 rounded-full bg-primary animate-pulse-slow" />
-                        Available for opportunities
+                        {personal.tagline}
                     </span>
                 </motion.div>
 
@@ -78,8 +79,8 @@ export default function HeroSection() {
                     variants={item}
                     className="text-5xl md:text-7xl font-bold text-text-primary leading-tight mb-4"
                 >
-                    Kunal{' '}
-                    <span className="gradient-text">Bavdhane</span>
+                    {personal.firstName}{' '}
+                    <span className="gradient-text">{personal.lastName}</span>
                 </motion.h1>
 
                 {/* Title */}
@@ -87,7 +88,7 @@ export default function HeroSection() {
                     variants={item}
                     className="text-xl md:text-2xl font-medium text-text-secondary mb-6"
                 >
-                    Full Stack Developer &amp; AI Builder
+                    {personal.title}
                 </motion.p>
 
                 {/* Value prop */}
@@ -95,9 +96,7 @@ export default function HeroSection() {
                     variants={item}
                     className="text-base md:text-lg text-text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
                 >
-                    I build intelligent systems, data tools, and scalable web applications.
-                    Computer Engineering student passionate about turning complex problems into
-                    clean, working software.
+                    {personal.bio}
                 </motion.p>
 
                 {/* CTA buttons */}
@@ -122,13 +121,9 @@ export default function HeroSection() {
                 {/* Quick stats */}
                 <motion.div
                     variants={item}
-                    className="grid grid-cols-3 gap-6 max-w-sm mx-auto mb-16"
+                    className="grid grid-cols-2 gap-6 max-w-xs mx-auto mb-16"
                 >
-                    {[
-                        { label: 'Projects', value: '6+' },
-                        { label: 'Technologies', value: '20+' },
-                        { label: 'Years Coding', value: '3+' },
-                    ].map((stat) => (
+                    {heroStats.map((stat) => (
                         <div key={stat.label} className="text-center">
                             <div className="text-2xl font-bold gradient-text">{stat.value}</div>
                             <div className="text-xs text-text-muted mt-1">{stat.label}</div>
@@ -139,7 +134,7 @@ export default function HeroSection() {
                 {/* Social links */}
                 <motion.div variants={item} className="flex justify-center gap-4">
                     <a
-                        href="https://github.com/kunalbavdhane"
+                        href={social.github.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-text-muted hover:text-primary transition-colors text-sm"

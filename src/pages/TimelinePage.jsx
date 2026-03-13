@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Timeline from '../components/Timeline';
+import { timelineStats } from '../data/profile';
 
 export default function TimelinePage() {
     return (
@@ -15,7 +16,7 @@ export default function TimelinePage() {
                     <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-3">Journey</p>
                     <h1 className="section-heading mb-4">Skills Timeline</h1>
                     <p className="section-subheading max-w-xl mx-auto">
-                        Four years of deliberate learning — from fundamentals to full-stack to AI engineering.
+                        Three years of deliberate learning — from fundamentals to full-stack to high performance systems.
                         Click any year to explore what I learned and built.
                     </p>
                 </motion.div>
@@ -37,12 +38,7 @@ export default function TimelinePage() {
                     transition={{ duration: 0.5 }}
                     className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
                 >
-                    {[
-                        { value: '4', label: 'Years of Learning', suffix: '' },
-                        { value: '20', label: 'Technologies Used', suffix: '+' },
-                        { value: '10', label: 'Projects Shipped', suffix: '+' },
-                        { value: '500', label: 'Problems Solved', suffix: '+' },
-                    ].map((stat) => (
+                    {timelineStats.map((stat) => (
                         <div key={stat.label} className="bg-card border border-border rounded-xl p-6 text-center hover:border-primary/30 transition-colors">
                             <div className="text-3xl font-bold gradient-text mb-1">
                                 {stat.value}{stat.suffix}

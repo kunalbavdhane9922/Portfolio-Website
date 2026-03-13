@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, Code2, ArrowUpRight } from 'lucide-react';
+import { personal, social } from '../data/profile';
 
 const navLinks = [
     { label: 'Home', path: '/' },
@@ -25,7 +26,7 @@ export default function Footer() {
                             </span>
                         </div>
                         <p className="text-text-muted text-sm leading-relaxed max-w-xs">
-                            Building intelligent systems, data tools, and scalable web applications.
+                            {personal.footerTagline}
                         </p>
                     </div>
 
@@ -52,29 +53,29 @@ export default function Footer() {
                         <h4 className="text-text-primary font-semibold mb-4 text-sm uppercase tracking-wider">Connect</h4>
                         <div className="space-y-3">
                             <a
-                                href="mailto:kunal.bavdhane@email.com"
+                                href={social.email.url}
                                 className="flex items-center gap-3 text-text-muted hover:text-primary transition-colors text-sm"
                             >
                                 <Mail size={16} />
-                                kunal.bavdhane@email.com
+                                {social.email.display}
                             </a>
                             <a
-                                href="https://github.com/kunalbavdhane"
+                                href={social.github.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-3 text-text-muted hover:text-primary transition-colors text-sm"
                             >
                                 <Github size={16} />
-                                github.com/kunalbavdhane
+                                {social.github.display}
                             </a>
                             <a
-                                href="https://linkedin.com/in/kunalbavdhane"
+                                href={social.linkedin.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-3 text-text-muted hover:text-primary transition-colors text-sm"
                             >
                                 <Linkedin size={16} />
-                                linkedin.com/in/kunalbavdhane
+                                {social.linkedin.display}
                             </a>
                         </div>
                     </div>
@@ -83,16 +84,16 @@ export default function Footer() {
                 {/* Bottom bar */}
                 <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p className="text-text-muted text-xs">
-                        © {new Date().getFullYear()} Kunal Bavdhane. Built with React & Tailwind CSS.
+                        © {new Date().getFullYear()} {personal.firstName} {personal.lastName}. Built with React & Tailwind CSS.
                     </p>
                     <div className="flex items-center gap-4">
-                        <a href="https://github.com/kunalbavdhane" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="GitHub">
+                        <a href={social.github.url} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="GitHub">
                             <Github size={18} />
                         </a>
-                        <a href="https://linkedin.com/in/kunalbavdhane" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="LinkedIn">
+                        <a href={social.linkedin.url} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors" aria-label="LinkedIn">
                             <Linkedin size={18} />
                         </a>
-                        <a href="mailto:kunal.bavdhane@email.com" className="text-text-muted hover:text-primary transition-colors" aria-label="Email">
+                        <a href={social.email.url} className="text-text-muted hover:text-primary transition-colors" aria-label="Email">
                             <Mail size={18} />
                         </a>
                     </div>

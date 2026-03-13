@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ChevronRight, Star } from 'lucide-react';
-import { timelineData } from '../data/timeline';
+import { timelineData } from '../data/profile';
 import SkillBadge from './SkillBadge';
 
 export default function Timeline() {
@@ -24,7 +24,7 @@ export default function Timeline() {
                         transition={{ duration: 1.2, ease: 'easeInOut', delay: 0.3 }}
                     />
 
-                    <div className="relative grid grid-cols-4 gap-0">
+                    <div className="relative grid grid-cols-3 gap-0">
                         {timelineData.map((item, i) => (
                             <div key={item.year} className="flex flex-col items-center">
                                 {/* Node */}
@@ -112,20 +112,22 @@ export default function Timeline() {
                                         </div>
 
                                         {/* Projects */}
-                                        <div>
-                                            <h4 className="text-sm font-semibold text-text-primary mb-3 uppercase tracking-wider">Projects Built</h4>
-                                            <div className="space-y-3">
-                                                {item.projects.map((p) => (
-                                                    <div key={p.name} className="flex gap-3 p-3 bg-primary-bg rounded-xl border border-border">
-                                                        <ChevronRight size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                                                        <div>
-                                                            <p className="text-text-primary text-sm font-medium">{p.name}</p>
-                                                            <p className="text-text-muted text-xs mt-0.5 leading-relaxed">{p.description}</p>
+                                        {item.projects && item.projects.length > 0 && (
+                                            <div>
+                                                <h4 className="text-sm font-semibold text-text-primary mb-3 uppercase tracking-wider">Projects Built</h4>
+                                                <div className="space-y-3">
+                                                    {item.projects.map((p) => (
+                                                        <div key={p.name} className="flex gap-3 p-3 bg-primary-bg rounded-xl border border-border">
+                                                            <ChevronRight size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                                                            <div>
+                                                                <p className="text-text-primary text-sm font-medium">{p.name}</p>
+                                                                <p className="text-text-muted text-xs mt-0.5 leading-relaxed">{p.description}</p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                ))}
+                                                    ))}
+                                                </div>
                                             </div>
-                                        </div>
+                                        )}
                                     </div>
                                 </div>
                             </motion.div>
@@ -194,14 +196,16 @@ export default function Timeline() {
                                                 {item.skills.map((s) => <SkillBadge key={s} label={s} size="sm" />)}
                                             </div>
                                         </div>
-                                        <div>
-                                            <p className="text-xs font-semibold text-text-primary uppercase tracking-wider mb-2">Projects</p>
-                                            {item.projects.map((p) => (
-                                                <div key={p.name} className="text-sm text-text-secondary mb-1">
-                                                    <span className="text-primary">→ </span>{p.name}
-                                                </div>
-                                            ))}
-                                        </div>
+                                        {item.projects && item.projects.length > 0 && (
+                                            <div>
+                                                <p className="text-xs font-semibold text-text-primary uppercase tracking-wider mb-2">Projects</p>
+                                                {item.projects.map((p) => (
+                                                    <div key={p.name} className="text-sm text-text-secondary mb-1">
+                                                        <span className="text-primary">→ </span>{p.name}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 </motion.div>
                             )}

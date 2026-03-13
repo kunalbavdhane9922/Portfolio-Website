@@ -1,10 +1,10 @@
 import HeroSection from '../components/HeroSection';
+import TechKeyboard from '../components/TechKeyboard';
 import ProjectCard from '../components/ProjectCard';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
-import { areasOfInterest } from '../data/skills';
-import { projects } from '../data/projects';
+import { areasOfInterest, projects, social } from '../data/profile';
 import { Mail, Github, Linkedin } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
 
@@ -71,7 +71,10 @@ export default function Home() {
             {/* 1. Hero */}
             <HeroSection />
 
-            {/* 2. All Projects */}
+            {/* 2. 3D Tech Keyboard */}
+            <TechKeyboard />
+
+            {/* 3. All Projects */}
             <section ref={projectsRef} className="section-padding bg-primary-bg">
                 <div className="max-w-7xl mx-auto">
                     <SectionHeader
@@ -88,7 +91,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* 3. Areas of Interest */}
+            {/* 4. Areas of Interest */}
             <section ref={interestRef} className="section-padding bg-secondary-bg">
                 <div className="max-w-7xl mx-auto">
                     <SectionHeader
@@ -105,7 +108,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* 4. Contact */}
+            {/* 5. Contact */}
             <section ref={contactRef} id="contact" className="section-padding bg-primary-bg">
                 <div className="max-w-6xl mx-auto">
                     <SectionHeader
@@ -125,9 +128,9 @@ export default function Home() {
                             className="lg:col-span-2 space-y-4"
                         >
                             {[
-                                { Icon: Mail, label: 'Email', value: 'kunal.bavdhane@email.com', href: 'mailto:kunal.bavdhane@email.com' },
-                                { Icon: Github, label: 'GitHub', value: 'github.com/kunalbavdhane', href: 'https://github.com/kunalbavdhane' },
-                                { Icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/kunalbavdhane', href: 'https://linkedin.com/in/kunalbavdhane' },
+                                { Icon: Mail, label: 'Email', value: social.email.display, href: social.email.url },
+                                { Icon: Github, label: 'GitHub', value: social.github.display, href: social.github.url },
+                                { Icon: Linkedin, label: 'LinkedIn', value: social.linkedin.display, href: social.linkedin.url },
                             ].map(({ Icon, label, value, href }) => (
                                 <a
                                     key={label}

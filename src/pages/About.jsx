@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { skillCategories, areasOfInterest } from '../data/skills';
+import { personal, skillCategories, areasOfInterest } from '../data/profile';
 import SkillBadge from '../components/SkillBadge';
 import { Link } from 'react-router-dom';
 import { Download, ArrowRight } from 'lucide-react';
@@ -58,29 +58,17 @@ export default function About() {
 
                     {/* Bio text */}
                     <div className="lg:col-span-3 space-y-5">
-                        <h2 className="text-2xl font-bold text-text-primary">Hi, I'm Kunal</h2>
-                        <p className="text-text-secondary leading-relaxed">
-                            I'm a Computer Engineering student with a strong bias toward building things that work in the real world.
-                            My projects start with a clearly defined problem, progress through deliberate architecture decisions,
-                            and ship as working software with measurable results.
-                        </p>
-                        <p className="text-text-secondary leading-relaxed">
-                            I work across the full stack — from data pipelines and ML models to React UIs and distributed backends.
-                            I'm most energized when working on systems that combine engineering rigor with practical impact:
-                            data tools that reduce analyst toil, AI systems that augment human decision-making, and web apps
-                            that people actually want to use.
-                        </p>
-                        <p className="text-text-secondary leading-relaxed">
-                            When I'm not building, I'm reading about distributed systems, contributing to open source,
-                            or working through algorithms problems to keep my fundamentals sharp.
-                        </p>
+                        <h2 className="text-2xl font-bold text-text-primary">Hi, I'm {personal.firstName}</h2>
+                        {personal.aboutBio.map((paragraph, i) => (
+                            <p key={i} className="text-text-secondary leading-relaxed">{paragraph}</p>
+                        ))}
 
                         {/* Quick facts */}
                         <div className="flex flex-wrap gap-4 pt-2">
                             {[
-                                { label: 'Location', value: 'India 🇮🇳' },
-                                { label: 'Degree', value: 'B.E. Computer Engineering' },
-                                { label: 'Available', value: 'Internships & Projects' },
+                                { label: 'Location', value: personal.location },
+                                { label: 'Degree', value: personal.degree },
+                                { label: 'Available', value: personal.availability },
                             ].map((fact) => (
                                 <div key={fact.label} className="bg-card border border-border rounded-lg px-4 py-2">
                                     <p className="text-xs text-text-muted">{fact.label}</p>

@@ -1,36 +1,37 @@
 import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, MapPin, Clock } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
+import { personal, social } from '../data/profile';
 
 const contactInfo = [
     {
         icon: Mail,
         label: 'Email',
-        value: 'kunal.bavdhane@email.com',
-        href: 'mailto:kunal.bavdhane@email.com',
+        value: social.email.display,
+        href: social.email.url,
     },
     {
         icon: Github,
         label: 'GitHub',
-        value: 'github.com/kunalbavdhane',
-        href: 'https://github.com/kunalbavdhane',
+        value: social.github.display,
+        href: social.github.url,
     },
     {
         icon: Linkedin,
         label: 'LinkedIn',
-        value: 'linkedin.com/in/kunalbavdhane',
-        href: 'https://linkedin.com/in/kunalbavdhane',
+        value: social.linkedin.display,
+        href: social.linkedin.url,
     },
     {
         icon: MapPin,
         label: 'Location',
-        value: 'India',
+        value: personal.location,
         href: null,
     },
     {
         icon: Clock,
         label: 'Response Time',
-        value: 'Usually within 24 hours',
+        value: social.responseTime,
         href: null,
     },
 ];
@@ -97,8 +98,7 @@ export default function Contact() {
                         {/* Open to opportunities note */}
                         <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl mt-4">
                             <p className="text-text-secondary text-sm leading-relaxed">
-                                <span className="text-primary font-semibold">Open to:</span> Internships, freelance projects,
-                                open source collaboration, and technical mentorship opportunities.
+                                <span className="text-primary font-semibold">Open to:</span> {personal.openTo}
                             </p>
                         </div>
                     </motion.div>
