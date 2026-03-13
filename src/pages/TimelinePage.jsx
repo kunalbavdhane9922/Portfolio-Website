@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import Timeline from '../components/Timeline';
+import Timeline from '../components/Timeline.jsx';
 import { timelineStats } from '../data/profile';
 
 export default function TimelinePage() {
