@@ -1,0 +1,35 @@
+
+  <!DOCTYPE html>
+  <html lang="en" class="dark">
+    <head>
+      
+      <meta charset="UTF-8" />
+      <link rel="icon" type="image/png" href="/profile-photo.png" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Kunal Bavdhane | Software Engineer & Full-Stack AI Developer</title>
+      <meta name="description" content="Portfolio of Kunal Bavdhane, Computer Engineering Undergraduate at VIT Pune and Full-Stack AI Developer specializing in scalable web systems, event-driven architecture, and AI platforms." />
+      <style>html, body { height: 100%; margin: 0; } html.dark, html.dark body { background-color: #09090b; color: #fafafa; } html.light, html.light body { background-color: #ffffff; color: #18181b; } #root { height: 100%; }</style>
+      <script>
+        (function() {
+          try {
+            var theme = localStorage.getItem('portfolio-theme');
+            if (theme === 'light') {
+              document.documentElement.classList.remove('dark');
+              document.documentElement.classList.add('light');
+            } else {
+              document.documentElement.classList.add('dark');
+            }
+          } catch (e) {}
+        })();
+      </script>
+      
+    </head>
+
+    <body>
+      
+      <div id="root"></div>
+      <script type="module" src="/src/main.tsx"></script>
+      
+    </body>
+  </html>
+  
